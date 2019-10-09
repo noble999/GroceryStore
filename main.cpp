@@ -10,6 +10,7 @@ int main()
   string list[5]; //array of 5 strings
   int numItems = 0;
   char input;
+  int counter=0;
   do
   {
   cout<<"\n==GROCERY LIST MANAGER==";
@@ -35,6 +36,12 @@ int main()
     }
   }
   while(!(input=='q') && !(input=='Q'));
-
+  cout<<"==ITEMS TO BUY==\n";
+  for(int numItems=0; numItems<5; numItems++)
+  {
+    // counter=1;
+     cout<<counter+1<<" "<<list[numItems]<<"\n";
+     counter=1+counter;
+  }
   return 0;
 }
