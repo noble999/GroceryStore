@@ -1,4 +1,5 @@
 //author: Noble LeDuc
+#include<vector>
 #include<iostream>
 #include<string>
 #include<cctype>
@@ -7,7 +8,7 @@ using namespace std;
 int main()
 {
   string dump;
-  string list[5]; //array of 5 strings
+  vector<string> list; //array of 5 strings
   int numItems = 0;
   char input;
   int counter=0;
@@ -24,24 +25,22 @@ int main()
     {
       cout<<"What is the item?\n";
       cin>>dump;
-      if(numItems>=5)
-      {
-        cout<<"You'll need a bigger list!\n";
-      }
-      else
-      {
-        list[numItems]=dump;
-        numItems++;
-      }
-    }
+      list.push_back (dump);
+   }
   }
   while(!(input=='q') && !(input=='Q'));
-  cout<<"==ITEMS TO BUY==\n";
-  for(int numItems=0; numItems<5; numItems++)
+  if(list.size()==0)
   {
-    // counter=1;
-     cout<<counter+1<<" "<<list[numItems]<<"\n";
-     counter=1+counter;
+    cout<<"No items to buy!\n";
+  }
+  else
+  {
+    cout<<"==ITEMS TO BUY==\n";
+    for(int numItems=0;numItems<list.size();numItems++)
+    {
+      cout<<counter+1<<" "<<list.at(numItems)<<"\n";
+      counter++;
+    }
   }
   return 0;
 }
